@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import cors from "cors";
 import vehicleRoutes from "./routes/vehicleRoutes.js";
 import pool from "./config/db.js";
