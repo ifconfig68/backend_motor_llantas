@@ -37,7 +37,7 @@ router.post("/create_preference", async (req, res) => {
           failure: "http://13.220.87.246:3000/failure",
           pending: "http://13.220.87.246:3000/pending",
         },
-        //auto_return: "approved",
+        auto_return: "approved",
 
         // ✅ Modo de prueba
         test: true, // explícitamente sandbox
