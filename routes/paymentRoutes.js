@@ -33,9 +33,9 @@ router.post("/create_preference", async (req, res) => {
           },
         ],
         back_urls: {
-          success: "http://localhost:5173/success",
-          failure: "http://localhost:5173/failure",
-          pending: "http://localhost:5173/pending",
+          success: "http://13.220.87.246:3000/success",
+          failure: "http://13.220.87.246:3000/failure",
+          pending: "http://13.220.87.246:3000/pending",
         },
         //auto_return: "approved",
 
