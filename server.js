@@ -39,6 +39,9 @@ app.use("/api/payments", paymentRoutes);
 
 app.use("/api/orders", orderRoutes);
 
+// Servir frontend
+app.use(express.static(path.join(__dirname, '../motorllantas-fork/dist')));
+
 
 
 
@@ -73,3 +76,9 @@ app.get("/test", async (req, res) => {
 
   }
 })();
+
+
+// SPA: todas las rutas apuntan a index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../motorllantas-fork/dist/index.html'));
+});
