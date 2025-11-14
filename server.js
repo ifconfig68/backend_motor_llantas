@@ -3,34 +3,44 @@ import cors from "cors";
 import vehicleRoutes from "./routes/vehicleRoutes.js";
 import pool from "./config/db.js";
 import llantasRoutes from "./routes/llantasRoutes.js";
+import { initContactTable } from "./database/initTables.js";
 import { initUsersTable } from './database/initUsersTable.js';
+import { initOrdersTable } from "./database/initTables.js";
 import authRoutes from './routes/authRoutes.js';
 import protectedRoutes from "./routes/protected.js";
 import matchRoutes from "./routes/matchRoutes.js";
 
 import inventoryRoutes from "./routes/inventoryRoutes.js";
-import { initContactTable } from "./database/initTables.js";
+
 
 import paymentRoutes from "./routes/paymentRoutes.js";
+
+import contactRoutes from "./routes/contactRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 
 initUsersTable();
 initContactTable();
+initOrdersTable();
 
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+app.use("/api/contact", contactRoutes);
 app.use("/api/vehicle", vehicleRoutes);
 app.use("/api", llantasRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/protected", protectedRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/match", matchRoutes);
-//app.use("/api/contact", contactRoutes);
 app.use("/api/payments", paymentRoutes);
+
+app.use("/api/orders", orderRoutes);
+
+
+
 
 
 const PORT = 3000;
