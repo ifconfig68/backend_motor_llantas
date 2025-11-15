@@ -15,7 +15,7 @@ router.get("/llantas", async (req, res) => {
         stock
       FROM llantas_motorllantas
       WHERE Price > 0
-      LIMIT 300;
+      LIMIT 50;
     `);
 
     const formatted = rows.map(item => ({
